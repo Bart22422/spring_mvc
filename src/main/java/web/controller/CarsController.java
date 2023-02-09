@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import web.carServise.CarServiseImp;
 import web.model.Car;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,16 +44,18 @@ public class CarsController {
         return "cars";
     }
 
-    @GetMapping(value = "/cars/{count}")
+    @GetMapping(value = "/cars/count={count}")
     public String car(ModelMap modelMap, @PathVariable int count) {
         if (carServiseImp.getCars().isEmpty()) {
             System.out.println("added cars");
             addCars();
         }
+        List<Car> cars = new ArrayList<>();
 
-        List<Car> cars = carServiseImp.getCars().subList(0, count);
         if (count >= 5) {
             cars = carServiseImp.getCars();
+        }else{
+           cars = carServiseImp.getCars().subList(0, count);
         }
 
         modelMap.addAttribute("cars", cars);
