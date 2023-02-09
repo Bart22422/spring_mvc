@@ -7,9 +7,14 @@
 </head>
 <body>
 <div style="text-align: center; font-family: Arial">
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
+    <h1 >Cars Table</h1>
+    <table style="margin: auto">
+        <tr   th:each = "item: ${cars}">
+            <td   th:text = "${item.brand}" />
+            <td   th:text = "${item.model}" />
+        </tr>
+    </table>
+
 </div>
 </body>
 </html>
