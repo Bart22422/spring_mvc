@@ -12,6 +12,7 @@
         <tr   th:each = "item: ${cars}">
             <td   th:text = "${item.brand}" />
             <td   th:text = "${item.model}" />
+            <td   th:text="${item.engineCapacity}"></td>
         </tr>
     </table>
 
