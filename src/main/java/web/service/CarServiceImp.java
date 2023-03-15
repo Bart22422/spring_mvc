@@ -6,7 +6,7 @@ import web.model.Car;
 
 import java.util.List;
 @Service
-public class CarServiceImp implements CarServise{
+public class CarServiceImp implements CarServiсe {
     private final CarDao carDao;
     public CarServiceImp(CarDao carDao) {
         this.carDao = carDao;
@@ -14,6 +14,9 @@ public class CarServiceImp implements CarServise{
 
     @Override
     public List<Car> getCars() {
+        if(getCars().isEmpty()){
+            carDao.addAll();
+        }
         return carDao.getCars();
     }
     @Override
