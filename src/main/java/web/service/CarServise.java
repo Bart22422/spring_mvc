@@ -1,6 +1,5 @@
-package web.carServise;
+package web.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import web.model.Car;
 
 import java.util.List;
@@ -8,6 +7,6 @@ import java.util.List;
 
 public interface CarServise {
     List<Car> getCars();
-    Car getcar(int id);
+    Car getCar(long id);
     void addCar(Car car);
 }
