@@ -37,19 +37,14 @@ public class CarsController {
 
     @GetMapping(value = "/cars")
     public String car(ModelMap modelMap, @RequestParam(value = "count", required = false, defaultValue = "5") int count) {
-     /*   if (carServiceImp.getCars().isEmpty()) {
+        if (carServiceImp.getCars().isEmpty()) {
             System.out.println("added cars");
             addCars();
-
-        }*/
-        addCars();
-        System.out.println(car1);
+        }
         List<Car> cars = carServiceImp.getCars();
-
         if (count < 5) {
             cars = carServiceImp.getCars().subList(0, count);
         }
-
         modelMap.addAttribute("cars", cars);
         return "cars";
     }
